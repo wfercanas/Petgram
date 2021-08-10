@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fadeIn } from "../../styles/animation";
 
 const StyledImgWrapper = styled.div`
   border-radius: 10px;
@@ -11,6 +12,7 @@ const StyledImgWrapper = styled.div`
 `;
 
 const StyledImg = styled.img`
+  ${fadeIn()}
   box-shadow: 0 10px 14px rgba(0, 0, 0, 0.2);
   height: 100%;
   object-fit: cover;
