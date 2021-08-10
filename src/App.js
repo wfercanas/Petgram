@@ -1,13 +1,15 @@
 import React from "react";
 
-import { ListOfCategories } from "./components/ListOfCategories";
 import { GlobalStyle } from "./GlobalStyles";
+import { ListOfCategories } from "./components/ListOfCategories";
+import { ListOfPhotoCard } from "./components/ListOfPhotoCard";
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
       <ListOfCategories />
+      <ListOfPhotoCard />
     </>
   );
 };
