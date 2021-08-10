@@ -1,13 +1,15 @@
 import React from "react";
+
+import { categories } from "../../../api/db.json";
 import { Category } from "../Category";
 import { StyledList, StyledListItem } from "./styles";
 
 const ListOfCategories = () => {
   return (
     <StyledList>
-      {[1, 2].map((category) => (
-        <StyledListItem key={category}>
-          <Category />
+      {categories.map((category) => (
+        <StyledListItem key={category.id}>
+          <Category {...category} />
         </StyledListItem>
       ))}
     </StyledList>
