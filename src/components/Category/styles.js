@@ -10,7 +10,7 @@ const StyledAnchor = styled.a`
 
 const StyledImage = styled.img`
   border: 1px solid #ddd;
-  box-shadow: 0px 10px 14p rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 14px rgba(0, 0, 0, 0.2);
   border-radius: 50%;
   height: auto;
   overflow: hidden;
