@@ -5,19 +5,27 @@ import {
   StyledImg,
   StyledButton,
 } from "./styles";
-import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 
 const DEFAULT_IMAGE =
   "https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png";
 
 const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
+  const key = `like-${id}`;
   const element = useRef(null);
   const [show, setShow] = useState(false);
+  const [liked, setLiked] = useState(() => {
+    try {
+      const like = window.localStorage.getItem(key);
+      return like;
+    } catch (e) {
+      return false;
+    }
+  });
 
   useEffect(() => {
     const observer = new window.IntersectionObserver((entries) => {
       const { isIntersecting } = entries[0];
-      console.log(isIntersecting);
       if (isIntersecting) {
         setShow(true);
         observer.disconnect();
@@ -25,6 +33,16 @@ const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     });
     observer.observe(element.current);
   }, [element]);
+
+  const Icon = liked ? MdFavorite : MdFavoriteBorder;
+  const setLocalStorage = (value) => {
+    try {
+      window.localStorage.setItem(key, value);
+      setLiked(value);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <StyledArticle ref={element}>
@@ -35,8 +53,8 @@ const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
               <StyledImg src={src} />
             </StyledImgWrapper>
           </a>
-          <StyledButton>
-            <MdFavoriteBorder size="32px" />
+          <StyledButton onClick={() => setLocalStorage(!liked)}>
+            <Icon size="32px" />
             {likes} likes!
           </StyledButton>
         </>
