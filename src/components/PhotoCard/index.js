@@ -23,7 +23,7 @@ const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     <StyledArticle ref={element}>
       {show && (
         <>
-          <a href={`/detail/${id}`}>
+          <a href={`/?detail=${id}`}>
             <StyledImgWrapper>
               <StyledImg src={src} />
             </StyledImgWrapper>
