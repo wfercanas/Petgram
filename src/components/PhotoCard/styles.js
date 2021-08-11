@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { fadeIn } from "../../styles/animation";
 
+const StyledArticle = styled.article`
+  min-height: 200px;
+`;
+
 const StyledImgWrapper = styled.div`
   border-radius: 10px;
   display: block;
@@ -33,4 +37,4 @@ const StyledButton = styled.button`
   }
 `;
 
-export { StyledImgWrapper, StyledImg, StyledButton };
+export { StyledArticle, StyledImgWrapper, StyledImg, StyledButton };
