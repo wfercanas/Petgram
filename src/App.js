@@ -4,6 +4,7 @@ import { GlobalStyle } from "./styles/GlobalStyles";
 import { Logo } from "./components/Logo";
 import { Home } from "./pages/Home";
 import { Detail } from "./pages/Detail";
+import { NavBar } from "./components/NavBar";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/pet/:categoryId" exact component={Home} />
           <Route path="/detail/:detailId" exact component={Detail} />
         </Switch>
+        <NavBar />
       </BrowserRouter>
     </>
   );
