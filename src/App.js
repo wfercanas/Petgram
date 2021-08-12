@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Context } from "./context/Context";
 
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { Logo } from "./components/Logo";
@@ -9,13 +11,8 @@ import { User } from "./pages/User";
 import { NotRegisteredUser } from "./pages/NotRegisteredUser";
 import { NavBar } from "./components/NavBar";
 
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-const UserLogged = ({ children }) => {
-  return children({ isAuth: false });
-};
-
 const App = () => {
+  const { isAuth } = useContext(Context);
   return (
     <>
       <GlobalStyle />
@@ -25,21 +22,19 @@ const App = () => {
           <Route path="/" exact component={Home} />
           <Route path="/pet/:categoryId" exact component={Home} />
           <Route path="/detail/:detailId" exact component={Detail} />
-          <UserLogged>
-            {({ isAuth }) =>
-              isAuth ? (
-                <>
-                  <Route path="/favs" exact component={Favs} />
-                  <Route path="/user" exact component={User} />
-                </>
-              ) : (
-                <>
-                  <Route path="/favs" component={NotRegisteredUser}></Route>
-                  <Route path="/user" component={NotRegisteredUser}></Route>
-                </>
-              )
-            }
-          </UserLogged>
+          <>
+            {isAuth ? (
+              <>
+                <Route path="/favs" exact component={Favs} />
+                <Route path="/user" exact component={User} />
+              </>
+            ) : (
+              <>
+                <Route path="/favs" component={NotRegisteredUser}></Route>
+                <Route path="/user" component={NotRegisteredUser}></Route>
+              </>
+            )}
+          </>
         </Switch>
         <NavBar />
       </BrowserRouter>
