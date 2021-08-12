@@ -25,16 +25,4 @@ const StyledImg = styled.img`
   width: 100%;
 `;
 
-const StyledButton = styled.button`
-  cursor: pointer;
-  padding-top: 8px;
-  background-color: transparent;
-  border: none;
-  display: flex;
-  align-items: center;
-  & svg {
-    margin-right: 4px;
-  }
-`;
-
-export { StyledArticle, StyledImgWrapper, StyledImg, StyledButton };
+export { StyledArticle, StyledImgWrapper, StyledImg };
