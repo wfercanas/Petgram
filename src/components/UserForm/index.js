@@ -2,9 +2,14 @@ import React from "react";
 import { useInputValue } from "../../hooks/useInputValue";
 import { StyledForm, StyledInput, StyledButton, StyledTitle } from "./styles";
 
-const UserForm = ({ handleSubmit, title }) => {
+const UserForm = ({ onSubmit, title }) => {
   const email = useInputValue("");
   const password = useInputValue("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit({ email: email.value, password: password.value });
+  };
 
   return (
     <>
