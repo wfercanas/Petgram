@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { StyledArticle, StyledImgWrapper, StyledImg } from "./styles";
 
 import { useLocalStorage } from "../../hooks/useLocalStorage";
@@ -18,11 +19,11 @@ const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     <StyledArticle ref={element}>
       {show && (
         <>
-          <a href={`/?detail=${id}`}>
+          <Link to={`/detail/${id}`}>
             <StyledImgWrapper>
               <StyledImg src={src} />
             </StyledImgWrapper>
-          </a>
+          </Link>
           <ToggleLikeMutation>
             {(toggleLike) => {
               const handleFavClick = () => {
