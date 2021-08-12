@@ -40,7 +40,7 @@ const ListOfCategories = () => {
     <StyledList fixed={fixed}>
       {categories.map((category) => (
         <StyledListItem key={category.id}>
-          <Category {...category} />
+          <Category {...category} path={`/pet/${category.id}`}/>
         </StyledListItem>
       ))}
     </StyledList>
