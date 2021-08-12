@@ -4,28 +4,21 @@ import { GlobalStyle } from "./styles/GlobalStyles";
 import { PhotoCardWithQuery } from "./container/PhotoCardWithQuery";
 import { Logo } from "./components/Logo";
 import { Home } from "./pages/Home";
+import { Detail } from "./pages/Detail";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 const App = () => {
-  const urlParams = new window.URLSearchParams(window.location.search);
-  const detailId = urlParams.get("detail");
-
   return (
     <>
       <GlobalStyle />
       <BrowserRouter>
         <Logo />
-        <>
-          {detailId ? (
-            <PhotoCardWithQuery id={detailId} />
-          ) : (
-            <>
-              <Route path="/" exact component={Home} />
-              <Route path="/pet/:categoryId" exact component={Home} />
-            </>
-          )}
-        </>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/pet/:categoryId" exact component={Home} />
+          <Route path="/detail/:detailId" exact component={Detail} />
+        </Switch>
       </BrowserRouter>
     </>
   );
