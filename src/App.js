@@ -14,15 +14,19 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Logo />
-      {detailId ? (
-        <PhotoCardWithQuery id={detailId} />
-      ) : (
-        <BrowserRouter>
-          <Route path="/" exact component={Home} />
-          <Route path="/pet/:categoryId" exact component={Home} />
-        </BrowserRouter>
-      )}
+      <BrowserRouter>
+        <Logo />
+        <>
+          {detailId ? (
+            <PhotoCardWithQuery id={detailId} />
+          ) : (
+            <>
+              <Route path="/" exact component={Home} />
+              <Route path="/pet/:categoryId" exact component={Home} />
+            </>
+          )}
+        </>
+      </BrowserRouter>
     </>
   );
 };
