@@ -4,11 +4,11 @@ import { ListOfCategories } from "../components/ListOfCategories";
 import { ListOfPhotoCard } from "../container/ListOfPhotoCard";
 
 const Home = () => {
-  let { id } = useParams();
+  let { categoryId } = useParams();
   return (
     <>
       <ListOfCategories />
-      <ListOfPhotoCard categoryId={id} />
+      <ListOfPhotoCard categoryId={categoryId} />
     </>
   );
 };

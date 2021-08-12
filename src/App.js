@@ -20,7 +20,7 @@ const App = () => {
       ) : (
         <BrowserRouter>
           <Route path="/" exact component={Home} />
-          <Route path="/pet/:id" exact component={Home} />
+          <Route path="/pet/:categoryId" exact component={Home} />
         </BrowserRouter>
       )}
     </>
