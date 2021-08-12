@@ -1,7 +1,6 @@
 import React from "react";
 
 import { GlobalStyle } from "./styles/GlobalStyles";
-import { PhotoCardWithQuery } from "./container/PhotoCardWithQuery";
 import { Logo } from "./components/Logo";
 import { Home } from "./pages/Home";
 import { Detail } from "./pages/Detail";
