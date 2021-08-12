@@ -20,7 +20,7 @@ const StyledNav = styled.nav`
 
 const StyledLink = styled(Link)`
   align-items: center;
-  color: #888;
+  color: ${({ status }) => (status === "off" ? "#888" : "#000")};
   display: inline-flex;
   height: 100%;
   justify-content: center;
