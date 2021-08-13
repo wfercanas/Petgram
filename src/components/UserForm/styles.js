@@ -28,6 +28,15 @@ const StyledButton = styled.button`
   display: block;
   width: 100%;
   text-align: center;
+
+  &[disabled] {
+    opacity: 0.3;
+  }
 `;
 
-export { StyledTitle, StyledForm, StyledInput, StyledButton };
+const StyledError = styled.span`
+  color: red;
+  font-size: 12px;
+`;
+
+export { StyledTitle, StyledForm, StyledInput, StyledButton, StyledError };
