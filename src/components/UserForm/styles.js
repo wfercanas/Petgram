@@ -7,7 +7,7 @@ const StyledTitle = styled.h2`
 `;
 
 const StyledForm = styled.form`
-  padding: 16px 0;
+  padding: 10px 0;
 `;
 
 const StyledInput = styled.input`
@@ -37,6 +37,7 @@ const StyledButton = styled.button`
 const StyledError = styled.span`
   color: red;
   font-size: 12px;
+  margin: 0;
 `;
 
 export { StyledTitle, StyledForm, StyledInput, StyledButton, StyledError };

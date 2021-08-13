@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../context/Context";
 import { UserForm } from "../components/UserForm/index.js";
 import { RegisterMutation } from "../container/RegisterMutation";
+import { LoginMutation } from "../container/LoginMutation";
 
 const NotRegisteredUser = () => {
   const { activateAuth } = useContext(Context);
@@ -27,7 +28,25 @@ const NotRegisteredUser = () => {
           );
         }}
       </RegisterMutation>
-      <UserForm handleSubmit={activateAuth} title="Iniciar Sesión" />
+      <LoginMutation>
+        {(login, { error, data, loading }) => {
+          const onSubmit = ({ email, password }) => {
+            const input = { email, password };
+            const variables = { input };
+            login({ variables }).then(activateAuth);
+          };
+
+          const errorMsg = error && "Credenciales incorrectas";
+          return (
+            <UserForm
+              disabled={loading}
+              onSubmit={onSubmit}
+              error={errorMsg}
+              title="Iniciar Sesión"
+            />
+          );
+        }}
+      </LoginMutation>
     </>
   );
 };
