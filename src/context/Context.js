@@ -12,9 +12,15 @@ const ContextProvider = ({ children }) => {
     window.sessionStorage.setItem("token", token);
   };
 
+  const removeAuth = () => {
+    setIsAuth(false);
+    window.sessionStorage.removeItem("token");
+  };
+
   const value = {
     isAuth,
     activateAuth,
+    removeAuth,
   };
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
